@@ -79,16 +79,133 @@ A photo-journal app where you're encouraged to take images, add your entries, an
 
 ### [BONUS] Interactive Prototype
 
-## Schema 
-
-[This section will be completed in Unit 9]
+## Schema
 
 ### Models
 
-[Add table of models]
+---
+
+#### User
+| Property   | Type     | Description                                  |
+|------------|----------|----------------------------------------------|
+| `username` | String   | User's chosen username                       |
+| `email`    | String   | User's email address                         |
+| `password` | String   | User's password (handled securely by Parse)  |
+| `theme`    | String   | (Optional) Current theme selected by user    |
+
+---
+
+#### Entry
+| Property    | Type          | Description                                           |
+|-------------|---------------|-------------------------------------------------------|
+| `user`      | Pointer<User> | Reference to the user who created the entry          |
+| `photo`     | File          | Image file captured by the camera                    |
+| `note`      | String        | User’s written text entry                            |
+| `date`      | Date          | Date the entry is associated with                    |
+| `location`  | GeoPoint      | (Optional) Location where the entry was created      |
+| `createdAt` | Date          | Timestamp when the entry was created (auto by Parse) |
+
+---
+
+#### Theme (Optional – for customizable themes)
+| Property  | Type           | Description                           |
+|-----------|----------------|---------------------------------------|
+| `user`    | Pointer<User>  | Owner of the custom theme             |
+| `name`    | String         | Theme name (e.g., “Moonlight”)        |
+| `colors`  | Dictionary     | Key-value pairs for theme colors      |
+
+---
 
 ### Networking
 
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
+---
+
+#### Auth Screens
+- **[POST] Sign Up**
+    ```swift
+    let user = PFUser()
+    user.username = "yourUsername"
+    user.email = "yourEmail"
+    user.password = "yourPassword"
+    user.signUpInBackground { (success, error) in
+        // Handle success or error
+    }
+    ```
+
+- **[POST] Log In**
+    ```swift
+    PFUser.logInWithUsername(inBackground: "yourUsername", password: "yourPassword") { user, error in
+        // Handle login result
+    }
+    ```
+
+---
+
+#### Camera / Entry Creation
+- **[POST] Create New Entry**
+    ```swift
+    let entry = PFObject(className: "Entry")
+    entry["user"] = PFUser.current()
+    entry["photo"] = photoFile
+    entry["note"] = noteText
+    entry["date"] = selectedDate
+    entry["location"] = PFGeoPoint(latitude: lat, longitude: lon) // optional
+    entry.saveInBackground { success, error in
+        // Handle save result
+    }
+    ```
+
+---
+
+#### Notes Screen
+- **[POST] Save Note to Existing Entry**
+    (if separated from photo)
+    ```swift
+    entry["note"] = updatedNote
+    entry.saveInBackground()
+    ```
+
+---
+
+#### Calendar Screen
+- **[GET] Fetch Entries by User**
+    ```swift
+    let query = PFQuery(className: "Entry")
+    query.whereKey("user", equalTo: PFUser.current()!)
+    query.order(byDescending: "date")
+    query.findObjectsInBackground { objects, error in
+        // Handle entries
+    }
+    ```
+
+- **[GET] Fetch Entries by Specific Date**
+    ```swift
+    query.whereKey("date", equalTo: selectedDate)
+    ```
+
+---
+
+#### Theme Selection
+- **[POST] Save User Theme Selection**
+    ```swift
+    PFUser.current()?["theme"] = selectedTheme
+    PFUser.current()?.saveInBackground()
+    ```
+
+- **[GET] Fetch User’s Theme**
+    ```swift
+    let theme = PFUser.current()?["theme"] as? String
+    ```
+
+---
+
+#### [Optional] Year in Review
+- **[GET] Fetch Entry Stats**
+    (Manually calculated client-side with multiple queries)
+    - Total entries
+    - Most used theme
+    - Most active month
+    - Top location
+
+---
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
