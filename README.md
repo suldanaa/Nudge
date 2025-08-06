@@ -73,7 +73,7 @@ A photo-journal app where you're encouraged to take images, add your entries, an
 ## Wireframes
 
 [Add picture of your hand sketched wireframes in this section]
-<img src="https://ibb.co/LB0415t" width=600>
+<img src="https://i.ibb.co/6Gy6FBP/IMG-4312.jpg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
