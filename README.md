@@ -73,7 +73,7 @@ A photo-journal app where you're encouraged to take images, add your entries, an
 ## Wireframes
 
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://drive.google.com/file/d/14KOspCcFNtw6e-fWCg91Sh4Bwpxz9pir/view?usp=sharing" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
