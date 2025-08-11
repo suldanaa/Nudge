@@ -61,4 +61,4 @@ Does this app provide huge value to a niche group of people?
 
 STEP 3
 --
-I decided based on this to do the **photo-text journal**.
+I decided based on this to do the **task simplifier app**.
