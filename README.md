@@ -1,4 +1,4 @@
-# MemoMe
+# Nudge
 
 ## Table of Contents
 
@@ -11,17 +11,17 @@
 
 ### Description
 
-A photo-journal app where you're encouraged to take images, add your entries, and look back on your entries throughout the years.
+A task-management app designed to help users (especially those with ADHD or executive dysfunction) break overwhelming tasks into tiny, actionable steps. Encourages progress through microtasks.
 
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
-- **Category:** Lifestyle
-- **Mobile:** Real-time capturing of your life through your phone camera lenses gives this app a particular need for it to be a mobile app. It wouldn't be able to be a website and hold the same purpose.
-- **Story:** We live in a time where many life-documentation apps are based around social engagement. Locket, instagram, snapchat. We have very few photo apps where the main goal is to document things for your own interest in looking back at where you were earlier in the year.
-- **Market:** Those who love journaling and life-documentation, but want a more private and accessible way to do such a thing.
-- **Habit:** People will use this whenever they get the urge to photograph something, it can be multiple times a day, everyday.
-- **Scope:** We haven't discussed how to incorporate a camera view yet so I'm a bit intimidated by that aspect. However, every other part is something we've already done (persiting data, calender view, etc.) However, I have a very clear view of the app.
+- **Category:** Productivity
+- **Mobile:** Uniquely mobile for quick, on-the-go task breakdowns and reminders.
+- **Story:** Addresses the paralysis of starting tasks by making them feel approachable.
+- **Market:** Students, neurodivergent individuals, and anyone overwhelmed by complex tasks.
+- **Habit:** Daily use for task logging and progress tracking.
+- **Scope:** Focused on core functionality (task breakdowns + calendar), with room for expansions like making it gamified.
 
 ## Product Spec
 
@@ -29,46 +29,37 @@ A photo-journal app where you're encouraged to take images, add your entries, an
 
 **Required Must-have Stories**
 
-* User can capture images on a specific date
-* User can save notes on a specific date
-* User can sign up with email and password
-* User can view photos and notes associated with certain date
-* User can select different visual themes for the app
+* User can create a task and break it into subtasks.
+* User can mark subtasks as complete (visual progress).
+* User can view tasks/subtasks in a calendar/daily view.
 
 **Optional Nice-to-have Stories**
-* User can view entry stats (e.g. number of photos taken, most written month, most visited themes)
-* User can add location information to their entries
-
+* Streaks/rewards for completing subtasks.
+* Pomodoro timer integration for focus sessions.
+  
 ### 2. Screen Archetypes
 
-- [ ] Login Screen
-* User can log in with email and password
-- [ ] Registration Screen
-*  User can register with email and password
-- [ ] Camera screen
-* User can take photos
-- [ ] Notes screen
-* User can take notes
+- [ ] Task Creation Screen
+* Input main task → add subtasks (e.g., "Write Essay" → "Outline → Draft Intro").
+- [ ] Task Dashboard
+*  Today’s tasks + progress bars.
 - [ ] Calender view
-* User can view past photo+text entries
+* Completed tasks.
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* Text notes
-* Camera
-* Calender view
+* Today’s Tasks
+* Task Breakdown
+* Calendar view
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] Login Screen
-        => Camera
-- [ ] Registration Screen
-        => Camera
-- [ ] Camera
-        => Calender
-        => Text notes
+- [ ] Task dashboard
+      => Tap task
+      => Subtask editor
+      => Calender
 
 ## Wireframes
 
